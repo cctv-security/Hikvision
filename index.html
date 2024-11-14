@@ -19,67 +19,124 @@
  <div class=language-list id=language_list ng-click=changeLanguage($event) bis_skin_checked=1><div class=out id=en title=English bis_skin_checked=1>English</div><div class=out id=bg title=Български bis_skin_checked=1>Български</div><div class=out id=hu title=Magyar bis_skin_checked=1>Magyar</div><div class=out id=el title=Ελληνικά bis_skin_checked=1>Ελληνικά</div><div class=out id=de title=Deutsch bis_skin_checked=1>Deutsch</div><div class=out id=it title=Italiano bis_skin_checked=1>Italiano</div><div class=out id=cs title=Český bis_skin_checked=1>Český</div><div class=out id=sk title=Slovensko bis_skin_checked=1>Slovensko</div><div class=out id=fr title=Français bis_skin_checked=1>Français</div><div class=out id=pl title=Polski bis_skin_checked=1>Polski</div><div class=out id=nl title=Nederlands bis_skin_checked=1>Nederlands</div><div class=out id=pt title=Português bis_skin_checked=1>Português</div><div class=out id=es title=Español bis_skin_checked=1>Español</div><div class=out id=ro title=Român bis_skin_checked=1>Român</div><div class=out id=da title=Dansk bis_skin_checked=1>Dansk</div><div class=out id=sv title=Svenska bis_skin_checked=1>Svenska</div><div class=out id=no title=Norsk bis_skin_checked=1>Norsk</div><div class=out id=fi title=Suomi bis_skin_checked=1>Suomi</div><div class=out id=hr title=Hrvatski bis_skin_checked=1>Hrvatski</div><div class=out id=sl title=Slovenščina bis_skin_checked=1>Slovenščina</div><div class=out id=sr title=Srpski bis_skin_checked=1>Srpski</div></div>
  </div>
  </div>
- <table cellspacing=0 cellpadding=0 border=0 class=middle>
- <tbody><tr>
- <td class=login-l>&nbsp;</td>
- <td class=login-m>
- <div class=login-part bis_skin_checked=1>
- <div class=line bis_skin_checked=1></div>
- <div class=login-error bis_skin_checked=1>
- <div class="inputValidTip ng-hide" ng-show="szErrorTip!=''" bis_skin_checked=1><i class=error></i><label class=ng-binding></label></div>
- </div>
- <div class=login-user bis_skin_checked=1>
- <input type=text class="login-input ng-pristine ng-valid" id=username ng-model=username maxlength=32 autocomplete=off placeholder="User Name" fdprocessedid=iiuknr value>
- <i class=icon-user></i>
- </div>
- <div class=login-item bis_skin_checked=1>
- <input type=text ng-model=password input-valid=undefined class="login-input ng-pristine ng-valid ng-scope" maxlength=16 style=display:none value><input type=password class="login-input ng-valid ng-dirty" id=password ng-model=password maxlength=16 placeholder=Password pigsney fdprocessedid=xub1bs><span class="pigsney close" style=left:210px;top:7px;display:none></span>
- <i class=icon-pass></i>
- </div>
- <div class="login-item bottom" bis_skin_checked=1>
- <span class="pwd-link ng-binding ng-hide" ng-bind=oLan.forgetPwd ng-show="oCap.bSptGuidImport || oCap.bSptQAReset || oCap.bSupportWithSecurityEmail" ng-click=forgetPwd()>Forgot password?</span>
- <button type=button class="btn btn-primary login-btn" ng-click=login() fdprocessedid=puzquj><label ng-bind=oLan.login class=ng-binding>Login</label></button>
- </div>
- 
- </div>
- </td>
- <td class=login-r>&nbsp;</td>
- </tr>
- </table>
- <div class=footer id=footer bis_skin_checked=1>©2019 Hikvision Digital Technology Co., Ltd. All Rights Reserved.</div>
+<table cellspacing="0" cellpadding="0" border="0" class="middle">
+  <tbody>
+    <tr>
+      <td class="login-l">&nbsp;</td>
+      <td class="login-m">
+        <div class="login-part">
+          <div class="line"></div>
+          <div class="login-error">
+            <div class="inputValidTip ng-hide" ng-show="szErrorTip!=''">
+              <i class="error"></i>
+              <label class="ng-binding"></label>
+            </div>
+          </div>
+          <div class="login-user">
+            <input type="text" class="login-input ng-pristine ng-valid" id="username" ng-model="username" maxlength="32" autocomplete="off" placeholder="User Name" fdprocessedid="iiuknr" value="">
+            <i class="icon-user"></i>
+          </div>
+          <div class="login-item">
+            <input type="password" class="login-input ng-valid ng-dirty" id="password" ng-model="password" maxlength="16" placeholder="Password" fdprocessedid="xub1bs">
+            <span class="pigsney close" style="left:210px;top:7px;display:none"></span>
+            <i class="icon-pass"></i>
+          </div>
+          <div class="login-item bottom">
+            <span class="pwd-link ng-binding ng-hide" ng-bind="oLan.forgetPwd" ng-show="oCap.bSptGuidImport || oCap.bSptQAReset || oCap.bSupportWithSecurityEmail" ng-click="forgetPwd()">Forgot password?</span>
+            <button type="button" class="btn btn-primary login-btn" ng-click="login()" fdprocessedid="puzquj">
+              <label ng-bind="oLan.login" class="ng-binding">Login</label>
+            </button>
+          </div>
+        </div>
+      </td>
+      <td class="login-r">&nbsp;</td>
+    </tr>
+  </tbody>
+</table>
+<div class="footer" id="footer">©2019 Hikvision Digital Technology Co., Ltd. All Rights Reserved.</div>
+<div id="active" class="msg-content-wrap">
+  <div class="msg-content">
+    <div class="password">
+      <span class="desc">
+        <label ng-bind="oLan.username" class="ng-binding">User Name</label>
+      </span>
+      <span>
+        <label ng-bind="activeUsername" class="ng-binding">admin</label>
+      </span>
+    </div>
+    <div password lan="oLan" o-password="oActivePwd" b-loginpage="true" user-name="activeUsername" spec-char="true" ps-length="16" ps-strength="true" hide-default="true">
+      <div class="item">
+        <span class="first ng-binding" ng-bind="szPagePwdName">Password</span>
+        <span>
+          <input ng-disabled="psDisabled" ng-model="oPassword.szPassword" ng-keydown="keydown($event, 0)" ng-keyup="keyup()" type="password" class="text ng-pristine ng-valid" input-valid="oParamsValid.oPassword" maxlength="16">
+        </span>
+      </div>
+      <div strength class="passwordstrength ng-isolate-scope ng-scope" lan="lan" o-password="oPassword.szPassword" o-username="userName" ng-if="psStrength">
+        <div class="validate">
+          <span>
+            <span class="userstrength"></span>
+            <span class="userstrength"></span>
+            <span class="userstrength"></span>
+            <span ng-bind="lan.pswstrength" class="ng-binding"></span>
+          </span>
+        </div>
+        <div class="clear"></div>
+        <div>
+          <label ng-bind="lan.passwordValidTips" class="ng-binding">Valid password range [8-16]. You can use a combination of numbers, lowercase, uppercase, and special characters for your password with at least two kinds of them contained.</label>
+        </div>
+      </div>
+      <div class="item">
+        <span class="first ng-binding" ng-bind="lan.confirm">Confirm</span>
+        <span>
+          <input ng-disabled="psDisabled" ng-model="oPassword.szPasswordConfirm" ng-keydown="keydown($event, 1)" type="password" class="text ng-pristine ng-valid" input-valid="oParamsValid.oPasswordConfirm" maxlength="16">
+        </span>
+      </div>
+    </div>
+  </div>
 </div>
-<div id=active class=msg-content-wrap bis_skin_checked=1>
- <div class=msg-content bis_skin_checked=1>
- <div class=password bis_skin_checked=1>
- <span class=desc><label ng-bind=oLan.username class=ng-binding>User Name</label></span>
- <span><label ng-bind=activeUsername class=ng-binding>admin</label></span>
- </div>
- <div password lan=oLan o-password=oActivePwd b-loginpage=true user-name=activeUsername spec-char=true ps-length=16 ps-strength=true hide-default=true bis_skin_checked=1><div class=item bis_skin_checked=1><span class="first ng-binding" ng-bind=szPagePwdName>Password</span><span><input ng-disabled=psDisabled ng-model=oPassword.szPassword ng-keydown="keydown($event, 0)" ng-keyup=keyup() type=password class="text ng-pristine ng-valid" input-valid=oParamsValid.oPassword maxlength=16></span></div><div strength class="passwordstrength ng-isolate-scope ng-scope" lan=lan o-password=oPassword.szPassword o-username=userName ng-if=psStrength bis_skin_checked=1><div class=validate bis_skin_checked=1><span><span class=userstrength></span><span class=userstrength></span><span class=userstrength></span><span ng-bind=lan.pswstrength class=ng-binding></span></span></div><div class=clear bis_skin_checked=1></div><div bis_skin_checked=1><label ng-bind=lan.passwordValidTips class=ng-binding>Valid password range [8-16]. You can use a combination of numbers, lowercase, uppercase and special character for your password with at least two kinds of them contained.</label></div></div><div class=item bis_skin_checked=1><span class="first ng-binding" ng-bind=lan.confirm>Confirm</span><span><input ng-disabled=psDisabled ng-model=oPassword.szPasswordConfirm ng-keydown="keydown($event, 1)" type=password class="text ng-pristine ng-valid" input-valid=oParamsValid.oPasswordConfirm maxlength=16></span></div></div>
- </div>
+<div id="wifiConfig" class="msg-content-wrap">
+  <div class="msg-content">
+    <div ng-show="oCap.bSupportActive" class="ng-hide">
+      <div class="item">
+        <span class="channelPwdFirst ng-binding" ng-bind="oLan.ipcActivePwd" title="Default IP Camera Password">Default IP Camera Password</span>
+        <span>
+          <input type="password" id="ipcActivePassword" ng-disabled="oParams.bActivePsw" ng-model="oParams.szPwd" input-valid="oParamsValid.oPassword" class="wifiSelect ng-valid ng-dirty" maxlength="16" pigsney>
+          <span class="pigsney close" style="display:none"></span>
+        </span>
+      </div>
+      <p class="txt-desc">
+        <span ng-bind="oLan.passwordValidTips" class="ng-binding">Valid password range [8-16]. You can use a combination of numbers, lowercase, uppercase, and special characters for your password with at least two kinds of them contained.</span>
+      </p>
+    </div>
+    <div class="item title ng-hide" ng-show="oWifi.bSupportWifiRegion || oWifi.bSupportWifiEnhance">
+      <span ng-bind="oLan.wifiConfig" class="ng-binding">wifi Settings</span>
+    </div>
+    <div class="password ng-hide" ng-show="oWifi.bSupportWifiRegion">
+      <span class="wifiArea">
+        <label ng-bind="oLan.areaCountry" class="ng-binding">Area/Country</label>
+      </span>
+      <span>
+        <select class="wifiSelect ng-pristine ng-valid" ng-model="oWifi.szWifiRegion" ng-options="oArea.value as oArea.name for oArea in oWifi.aAreaCountryList">
+          <option value="?" selected title=""></option>
+        </select>
+      </span>
+    </div>
+    <div class="item ng-hide" ng-show="oWifi.bSupportWifiEnhance">
+      <span>
+        <input type="checkbox" class="checkbox ng-pristine ng-valid" ng-model="oWifi.bWifiEnhance" value="on" checked>
+        <label ng-bind="oLan.enableWifiEnhance" class="ng-binding">Enable Signal Enhancement</label>
+      </span>
+    </div>
+  </div>
 </div>
-<div id=wifiConfig class=msg-content-wrap bis_skin_checked=1>
- <div class=msg-content bis_skin_checked=1>
- <div ng-show=oCap.bSupportActive bis_skin_checked=1 class=ng-hide>
- 
- <div class=item bis_skin_checked=1>
- <span class="channelPwdFirst ng-binding" ng-bind=oLan.ipcActivePwd title="Default IP Camera Password">Default IP Camera Password</span>
- <span>
- <input type=text ng-model=oParams.szPwd input-valid=oParamsValid.oPassword class="wifiSelect ng-pristine ng-valid ng-scope" maxlength=16 style=display:none value><input id=ipcActivePassword type=password ng-disabled=oParams.bActivePsw class="wifiSelect ng-valid ng-dirty" ng-model=oParams.szPwd input-valid=oParamsValid.oPassword maxlength=16 pigsney><span class="pigsney close" style=display:none></span>
- </span>
- </div>
- <p class=txt-desc><span ng-bind=oLan.passwordValidTips class=ng-binding>Valid password range [8-16]. You can use a combination of numbers, lowercase, uppercase and special character for your password with at least two kinds of them contained.</span></p>
- </div>
- <div class="item title ng-hide" ng-show="oWifi.bSupportWifiRegion || oWifi.bSupportWifiEnhance" bis_skin_checked=1>
- <span ng-bind=oLan.wifiConfig class=ng-binding>wifi Settings</span>
- </div>
- <div class="password ng-hide" ng-show=oWifi.bSupportWifiRegion bis_skin_checked=1>
- <span class=wifiArea><label ng-bind=oLan.areaCountry class=ng-binding>Area/Country</label></span>
- <span><select class="wifiSelect ng-pristine ng-valid" ng-model=oWifi.szWifiRegion ng-options="oArea.value as oArea.name for oArea in oWifi.aAreaCountryList"><option value=? selected title></select></span>
- </div>
- <div class="item ng-hide" ng-show=oWifi.bSupportWifiEnhance bis_skin_checked=1>
- <span><input type=checkbox class="checkbox ng-pristine ng-valid" ng-model=oWifi.bWifiEnhance value=on checked><label ng-bind=oLan.enableWifiEnhance class=ng-binding>Enable Signal Enhancement</label></span>
- </div>
- </div>
+<div id="main_plugin" class="no-window" style="display:none">
+  <div class="parent-wnd" style="overflow:hidden;width:100%;height:100%;position:relative">
+    <div style="float:left;background-color:#4C4B4B;position:relative;width:822px;height:0px">
+      <canvas id="canvas0" class="play-window" style="border:1px solid rgb(255,204,0)" wid="0" width="820" height="-2"></canvas>
+      <img style="display:none" id="playImg0" src="data:,">
+      <canvas id="canvas_draw0" class="draw-window" style="position:absolute;top:0;left:0" wid="0" width="822" height="0"></canvas>
+    </div>
+    <!-- Additional canvas elements if necessary -->
+  </div>
 </div>
-<div id=main_plugin class=no-window bis_skin_checked=1 style=display:none><div class=parent-wnd style=overflow:hidden;width:100%;height:100%;position:relative bis_skin_checked=1><div style=float:left;background-color:#4C4B4B;position:relative;width:822px;height:0px bis_skin_checked=1><canvas id=canvas0 class=play-window style="border:1px solid rgb(255,204,0)" wid=0 width=820 height=-2></canvas><img style=display:none id=playImg0 src=data:,><canvas id=canvas_draw0 class=draw-window style=position:absolute;top:0;left:0 wid=0 width=822 height=0></canvas></div><div style=float:left;background-color:#4C4B4B;position:relative;width:822px;height:0px bis_skin_checked=1><canvas id=canvas1 class=play-window style="border:1px solid #343434" wid=1 width=820 height=-2></canvas><canvas id=canvas_draw1 class=draw-window style=position:absolute;top:0;left:0 wid=1 width=822 height=0></canvas></div><div style=float:left;background-color:#4C4B4B;position:relative;width:822px;height:0px bis_skin_checked=1><canvas id=canvas2 class=play-window style="border:1px solid #343434" wid=2 width=820 height=-2></canvas><canvas id=canvas_draw2 class=draw-window style=position:absolute;top:0;left:0 wid=2 width=822 height=0></canvas></div><div style=float:left;background-color:#4C4B4B;position:relative;width:822px;height:0px bis_skin_checked=1><canvas id=canvas3 class=play-window style="border:1px solid #343434" wid=3 width=820 height=-2></canvas><canvas id=canvas_draw3 class=draw-window style=position:absolute;top:0;left:0 wid=3 width=822 height=0></canvas></div></div></div>
-<span id=PING_IFRAME_FORM_DETECTION style=display:none></span>
+<span id="PING_IFRAME_FORM_DETECTION" style="display:none"></span>
